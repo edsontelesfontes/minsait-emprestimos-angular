@@ -1,0 +1,59 @@
+<h1 class="display-6">{{ cpf ? 'Editar' : 'Cadastrar' }}</h1>
+<hr />
+
+<div class="container-fluid">
+    <form [formGroup]="clienteForm" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col-12">
+        <label for="name" class="form-label">Nome</label>
+        <input id="name" type="text" class="form-control" formControlName="nome" />
+      </div>
+      <!-- {{ cpf ? 'Editar' : 'Cadastrar' }} -->
+      </div>
+      <div class="col-3">
+        <label for="cpf" class="form-label" >CPF</label>
+        <input id="cpf" type="text" class="form-control" formControlName="cpf" minLength="11" maxlength="11"/>
+      </div>
+      <div class="col-3">
+        <label for="phoneNumber" class="form-label">Telefone</label>
+        <input id="phoneNumber" type="text" class="form-control" formControlName="telefone" minLength="11" maxlength="11"/>
+      </div>
+
+      <div class="col-3">
+        <label for="salary" class="form-label">Salário</label>
+        <input id="salary" type="number" class="form-control" formControlName="rendimentoMensal"/>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="clientType">Tipo de cliente:</label>
+        <input id="clientType" type="text" class="form-control" formControlName="clientType" placeholder="OURO/PRATA/BRONZE" />
+      </div> -->
+
+      <div class="col-3 mt-3">
+      <label for="relacionamento">Tipo de relacionamento do cliente</label>
+      <select class="form-select" aria-label="Default select example" formControlName="relacionamento">
+        <option selected>Selecione um tipo de conta</option>
+       // <option *ngFor="let type of types " >{{ type }}</option>
+      </select>
+    </div>
+      <hr/>
+      <div formGroupName="endereco">
+      <div class="form-group">
+        <label for="street">Logradouro:</label>
+        <input id="street" type="text" class="form-control" formControlName="rua" />
+      </div>
+
+      <div class="form-group">
+        <label for="number">Número:</label>
+        <input id="number" type="number" class="form-control" formControlName="numero" />
+      </div>
+
+      <div class="form-group">
+        <label for="zipCode">CEP:</label>
+        <input id="zipCode" type="text" class="form-control" formControlName="cep" />
+      </div>
+    </div>
+    <!-- </div> -->
+    <button type="submit" [disabled]="clienteForm.invalid"  class="btn btn-dark">{{cpf ? 'Editar' : 'Cadastrar'}}</button>
+  </form>
+</div>

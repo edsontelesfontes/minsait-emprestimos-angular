@@ -1,0 +1,32 @@
+<h1 class="display-6">Lista de Clientes</h1>
+<hr />
+<a class="btn btn-dark" routerLink="/clients/create">Novo cliente</a>
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th scope="col">CPF</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Rendimento Mensal</th>
+      <th scope="col">Tipo de Relacionamento</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clientes of clientes">
+      <th scope="row">{{ clientes.cpf | cpf}}</th>
+      <td>{{ clientes.nome }}</td>
+      <td>{{ clientes.telefone | phone }}</td>
+      <td>Logradouro: {{ clientes.endereco.rua}}, {{clientes.endereco.numero}}, Cep: {{clientes.endereco.cep}}</td>
+      <td>{{ clientes.rendimentoMensal | currency:'BRL'}}</td>
+      <td>{{clientes.relacionamento}}</td>
+      <td>
+        <!-- <a type="button" (click)="deletarCliente(clientes.cpf)"><i class="fa-solid fa-wand-magic-sparkles"></i></a> -->
+        <a type="button" (click)="deletarCliente(clientes.cpf)"><i class="fa-solid fa-circle-xmark me-3"></i></a>
+
+        <a type="button" (click)="updateClient(clientes.cpf)"><i class="fa-solid fa-pen"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
