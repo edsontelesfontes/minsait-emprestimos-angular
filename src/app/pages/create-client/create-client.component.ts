@@ -28,7 +28,6 @@ getEnumClientType(): any {
       console.error('Erro ao buscar strings', error);
     }
   );
-  console.log(this.types);
 }
 
 clienteForm = new FormGroup({
@@ -71,9 +70,7 @@ ngOnInit(){
 
 
  submitForm(){
-  console.log(this.cpf)
   if(this.cpf){
-    console.log("passou aqui no submit")
     const cliente: ICliente = this.clienteForm.value as unknown as ICliente;
     this.updateClient(String(this.cpf), cliente);
   }else{
@@ -82,7 +79,6 @@ ngOnInit(){
  }
 
 createClient(){
-  console.log("passou aqui")
   const cliente: ICliente = this.clienteForm.value as unknown as ICliente;
   this.clientService.cadastrarCliente(cliente).subscribe(result => {
     Swal.fire(
@@ -98,8 +94,9 @@ createClient(){
 
 updateClient(cpf: string, client: ICliente){
   this.clientService.updateCliente(String(cpf), client).subscribe(result => {
-    Swal.fire('Cliente atualizado com sucesso! ',
-    'success')
+    Swal.fire('Atualizado',
+      'Cliente atualizado com sucesso! ',
+      'success')
 
     this.router.navigate(["clients"]);
   });;

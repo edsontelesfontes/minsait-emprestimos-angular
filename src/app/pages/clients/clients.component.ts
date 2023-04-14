@@ -30,7 +30,7 @@ deletarCliente(cpf: string){
     text: "Você não será capaz de voltar atrás com essa ação!",
     icon: 'warning',
     showCancelButton: true,
-    background: 'black',
+
 
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
