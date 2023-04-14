@@ -50,7 +50,7 @@ A arquitetura da nossa plataforma é constituida por:
 ---- -- -- -- 
 Para a nossa demonstração crie um servidor de desenvolvimento com o comando no terminal:
 ```
- `ng serve` e acesse o site `http://localhost:4200/`.
+ `npm install` e logo em seguida `ng serve` e acesse o site `http://localhost:4200/`.
 ```
 ---- -- -- -- 
 
